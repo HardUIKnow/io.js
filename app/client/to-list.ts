@@ -2,13 +2,13 @@ import {Component, Inject} from "angular2/core";
 import {HTTP_PROVIDERS, Http, Headers} from "angular2/http";
 import {LedService} from "./to-service";
 import {LedModel} from "./to-model";
-import {LedStatus} from "./to-status";
+// import {LedStatus} from "./to-status";
 // import {LedButton} from "./to-button";
 
 @Component({
   selector:'led-list',
   providers: [HTTP_PROVIDERS],
-  directives:[LedStatus],
+  // directives:[LedButton],
   template:`
   <table>
     <thead>
@@ -19,31 +19,12 @@ import {LedStatus} from "./to-status";
     <tbody *ngFor="#led of ledService.leds">
     <tr>
     <td>{{led.name}}</td>
-    <td><led-status [led]="led"></led-status></td>
+    <td>{{led.status}}</td>
     <td><button (click)="onClick(led)" >on</button>
     <button (click)="offClick(led)">off</button></td>
     </tr>
     </tbody>
-  </table>`,
-  styles:[`
-    h1 {
-      color: #f39c12
-    }
-    div {
-      padding: 10px;
-      color: #bdc3c7;
-    }
-    table, th, td {
-      border-bottom : 2px solid grey;
-      border-collapse: collapse;
-      padding: 10px;
-      text-align: center;
-      color: #bdc3c7;
-    }
-    tr:hover {
-      background-color: #7f8c8d;
-    }
-  `]
+  </table>`
 })
 export class LedList{
   // public ledArray:LedModel[]=[];
@@ -55,7 +36,7 @@ export class LedList{
     this.http.get('/api/bears').subscribe(res => {
       this.ledService.leds = res.json();
       // this.ledArray = res.json();
-      console.log(this.ledService.leds);
+      // console.log(this.ledService.leds);
     });
     // console.log(this.data);
   }
