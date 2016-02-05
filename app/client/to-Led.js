@@ -24,7 +24,7 @@ System.register(["angular2/core", 'angular2/http'], function(exports_1) {
                     var _this = this;
                     this.http = http;
                     this.active = false;
-                    this.http.get('http://localhost:8080/api/bears').subscribe(function (res) {
+                    this.http.get('http://localhost:3000/api/bears').subscribe(function (res) {
                         _this.boards = res.json();
                     });
                 }
@@ -38,10 +38,13 @@ System.register(["angular2/core", 'angular2/http'], function(exports_1) {
                 // }
                 ToLed.prototype.clickOn = function (value) {
                     // var tochange;
-                    var modChange = "name=" + value.name + "&pin=" + value.pin + "&status=on&color=green";
+                    value.status = "on";
+                    value.color = "green";
+                    console.log(value.name, value.status);
+                    var modChange = "name=" + value.name + "&pin=" + value.pin + "&status=" + value.status + "&color=" + value.color;
                     var header = new http_1.Headers();
                     header.append('Content-Type', 'application/x-www-form-urlencoded');
-                    this.http.put('http://localhost:8080/api/bears/' + value._id, modChange, {
+                    this.http.put('http://localhost:3000/api/bears/' + value._id, modChange, {
                         headers: header
                     })
                         .subscribe(function (res) { return console.log(res.json()); });
@@ -55,10 +58,12 @@ System.register(["angular2/core", 'angular2/http'], function(exports_1) {
                     console.log(this.boards);
                 };
                 ToLed.prototype.clickOff = function (value) {
-                    var modChange = "name=" + value.name + "&pin=" + value.pin + "&status=off&color=red";
+                    value.status = "off";
+                    value.color = "red";
+                    var modChange = "name=" + value.name + "&pin=" + value.pin + "&status=" + value.status + "&color=" + value.color;
                     var header = new http_1.Headers();
                     header.append('Content-Type', 'application/x-www-form-urlencoded');
-                    this.http.put('http://localhost:8080/api/bears/' + value._id, modChange, {
+                    this.http.put('http://localhost:3000/api/bears/' + value._id, modChange, {
                         headers: header
                     })
                         .subscribe(function (res) { return console.log(res.json()); });

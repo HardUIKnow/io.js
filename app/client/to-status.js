@@ -1,4 +1,4 @@
-System.register(["angular2/core"], function(exports_1) {
+System.register(['angular2/core'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,25 +9,31 @@ System.register(["angular2/core"], function(exports_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var LedService;
+    var LedStatus;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            LedService = (function () {
-                function LedService() {
-                    this.leds = [];
+            LedStatus = (function () {
+                function LedStatus() {
                 }
-                LedService = __decorate([
-                    core_1.Injectable(), 
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], LedStatus.prototype, "led", void 0);
+                LedStatus = __decorate([
+                    core_1.Component({
+                        selector: 'led-status',
+                        template: '{{led.status}}'
+                    }), 
                     __metadata('design:paramtypes', [])
-                ], LedService);
-                return LedService;
+                ], LedStatus);
+                return LedStatus;
             })();
-            exports_1("LedService", LedService);
+            exports_1("LedStatus", LedStatus);
         }
     }
 });
-//# sourceMappingURL=to-service.js.map
+//# sourceMappingURL=to-status.js.map

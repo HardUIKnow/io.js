@@ -49,7 +49,7 @@ export class ToLed{
   public boards: Object[];
 
   constructor(public http:Http) {
-    this.http.get('http://localhost:8080/api/bears').subscribe(res => {
+    this.http.get('http://localhost:3000/api/bears').subscribe(res => {
       this.boards = res.json();
     });
   }
@@ -66,10 +66,13 @@ export class ToLed{
 
   clickOn(value){
     // var tochange;
-    var modChange = "name="+ value.name + "&pin=" + value.pin + "&status=on&color=green";
+    value.status = "on";
+    value.color = "green";
+    console.log(value.name,value.status);
+    var modChange = "name="+ value.name + "&pin=" + value.pin + "&status=" + value.status +"&color=" + value.color;
     var header = new Headers();
     header.append('Content-Type', 'application/x-www-form-urlencoded');
-    this.http.put('http://localhost:8080/api/bears/' + value._id,modChange,{
+    this.http.put('http://localhost:3000/api/bears/' + value._id,modChange,{
       headers: header
     })
     .subscribe(
@@ -86,11 +89,12 @@ export class ToLed{
         console.log(this.boards);
   }
   clickOff(value){
-
-    var modChange = "name="+ value.name + "&pin=" + value.pin + "&status=off&color=red";
+    value.status = "off";
+    value.color = "red";
+    var modChange = "name="+ value.name + "&pin=" + value.pin + "&status=" + value.status +"&color=" + value.color;
     var header = new Headers();
     header.append('Content-Type', 'application/x-www-form-urlencoded');
-    this.http.put('http://localhost:8080/api/bears/' + value._id,modChange,{
+    this.http.put('http://localhost:3000/api/bears/' + value._id,modChange,{
       headers: header
     })
     .subscribe(
