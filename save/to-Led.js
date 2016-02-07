@@ -38,7 +38,9 @@ System.register(["angular2/core", 'angular2/http'], function(exports_1) {
                 // }
                 ToLed.prototype.clickOn = function (value) {
                     // var tochange;
-                    var modChange = "name=" + value.name + "&pin=" + value.pin + "&status=on&color=green";
+                    value.status = "on";
+                    value.color = "green";
+                    var modChange = "name=" + value.name + "&pin=" + value.pin + "&status=" + value.status + "&color=" + value.color;
                     var header = new http_1.Headers();
                     header.append('Content-Type', 'application/x-www-form-urlencoded');
                     this.http.put('http://localhost:8080/api/bears/' + value._id, modChange, {
@@ -55,7 +57,9 @@ System.register(["angular2/core", 'angular2/http'], function(exports_1) {
                     console.log(this.boards);
                 };
                 ToLed.prototype.clickOff = function (value) {
-                    var modChange = "name=" + value.name + "&pin=" + value.pin + "&status=off&color=red";
+                    value.status = "off";
+                    value.color = "red";
+                    var modChange = "name=" + value.name + "&pin=" + value.pin + "&status=" + value.status + "&color=" + value.color;
                     var header = new http_1.Headers();
                     header.append('Content-Type', 'application/x-www-form-urlencoded');
                     this.http.put('http://localhost:8080/api/bears/' + value._id, modChange, {

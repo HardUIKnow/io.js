@@ -66,7 +66,9 @@ export class ToLed{
 
   clickOn(value){
     // var tochange;
-    var modChange = "name="+ value.name + "&pin=" + value.pin + "&status=on&color=green";
+    value.status = "on";
+    value.color = "green";
+    var modChange = "name="+ value.name + "&pin=" + value.pin + "&status=" + value.status +"&color=" + value.color;
     var header = new Headers();
     header.append('Content-Type', 'application/x-www-form-urlencoded');
     this.http.put('http://localhost:8080/api/bears/' + value._id,modChange,{
@@ -86,8 +88,9 @@ export class ToLed{
         console.log(this.boards);
   }
   clickOff(value){
-
-    var modChange = "name="+ value.name + "&pin=" + value.pin + "&status=off&color=red";
+    value.status = "off";
+    value.color = "red";
+    var modChange = "name="+ value.name + "&pin=" + value.pin + "&status=" + value.status +"&color=" + value.color;
     var header = new Headers();
     header.append('Content-Type', 'application/x-www-form-urlencoded');
     this.http.put('http://localhost:8080/api/bears/' + value._id,modChange,{

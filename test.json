@@ -2,5 +2,7 @@
 	{ "name":"Led1", "status":"off","pin":"10","color":"red"},
 	{ "name":"Led2", "status":"off","pin":"11","color":"red"},
 	{ "name":"Led3", "status":"off","pin":"12","color":"red"},
-	{ "name":"Led4", "status":"off","pin":"13","color":"red"}
+	{ "name":"Led4", "status":"off","pin":"11","color":"red"},
+	{ "name":"Led5", "status":"off","pin":"12","color":"red"},
+	{ "name":"Led6", "status":"off","pin":"13","color":"red"}
 ]

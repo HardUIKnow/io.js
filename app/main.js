@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/platform/browser', "angular2/http", "./client/to-service", "./client/to-list"], function(exports_1) {
+System.register(['angular2/core', 'angular2/platform/browser', "angular2/http", "./client/to-service", "./client/to-list", "./client/to-http"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/platform/browser', "angular2/http", 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, browser_1, http_1, to_service_1, to_list_1;
+    var core_1, browser_1, http_1, to_service_1, to_list_1, to_http_1;
     var App;
     return {
         setters:[
@@ -26,9 +26,11 @@ System.register(['angular2/core', 'angular2/platform/browser', "angular2/http", 
             },
             function (to_list_1_1) {
                 to_list_1 = to_list_1_1;
+            },
+            function (to_http_1_1) {
+                to_http_1 = to_http_1_1;
             }],
         execute: function() {
-            // import {ToLed} from "./client/to-Led";
             App = (function () {
                 function App() {
                 }
@@ -36,16 +38,15 @@ System.register(['angular2/core', 'angular2/platform/browser', "angular2/http", 
                     core_1.Component({
                         selector: 'my-app',
                         providers: [http_1.HTTP_PROVIDERS],
-                        //  directives: [ToLed],
                         directives: [to_list_1.LedList],
-                        template: "\n    <div align=\"center\">\n    <h1>Led Command</h1>\n    <div>\n      <led-list></led-list>\n    </div>\n    </div>\n  "
+                        template: "\n    <div align=\"center\" id=\"infobulles\">\n    <h1>Led Command</h1>\n    <div>\n      <led-list></led-list>\n    </div>\n    </div>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], App);
                 return App;
             })();
             exports_1("App", App);
-            browser_1.bootstrap(App, [to_service_1.LedService])
+            browser_1.bootstrap(App, [to_service_1.LedService, to_http_1.HttpService])
                 .catch(function (err) { return console.error(err); });
         }
     }

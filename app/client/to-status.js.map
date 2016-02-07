@@ -1,1 +1,0 @@
-{"version":3,"file":"to-status.js","sourceRoot":"","sources":["to-status.ts"],"names":["LedStatus","LedStatus.constructor"],"mappings":";;;;;;;;;;;;;;;;;;YAEA;gBAAAA;gBAMAC,CAACA;gBADCD;oBAACA,YAAKA,EAAEA;;mBAACA,0BAAGA,UAACA;gBALfA;oBAACA,gBAASA,CAACA;wBACTA,QAAQA,EAACA,YAAYA;wBACrBA,QAAQA,EAACA,gBAAgBA;qBAC1BA,CAACA;;8BAGDA;gBAADA,gBAACA;YAADA,CAACA,AAND,IAMC;YAND,iCAMC,CAAA"}

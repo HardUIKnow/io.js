@@ -1,6 +1,6 @@
 <html>
 
-  <head>
+<head>
     <title>Arduino Center Angular2</title>
 
     <!-- 1. Load libraries -->
@@ -17,21 +17,21 @@
 
     <!-- 2. Configure SystemJS -->
     <script>
-      System.config({
-        packages: {
-          app: {
-            format: 'register',
-            defaultExtension: 'js'
-          }
-        }
-      });
-      System.import ('app/main').then(null, console.error.bind(console));
+        System.config({
+            packages: {
+                app: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System.import('app/main').then(null, console.error.bind(console));
     </script>
 
-  </head>
+</head>
 
-  <!-- 3. Display the application -->
-  <body>
-    <my-app>Loading.....</my-app>
-  </body>
+<!-- 3. Display the application -->
+<body>
+<my-app>Loading.....</my-app>
+</body>
 </html>

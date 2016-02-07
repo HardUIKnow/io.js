@@ -1,4 +1,4 @@
-System.register(['angular2/http', 'angular2/core'], function(exports_1) {
+System.register(["angular2/core", "angular2/http", "./to-service", 'rxjs/add/operator/map'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,40 +8,50 @@ System.register(['angular2/http', 'angular2/core'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var http_1, core_1;
-    var TOHTTP;
+    var core_1, http_1, to_service_1;
+    var HttpService;
     return {
         setters:[
+            function (core_1_1) {
+                core_1 = core_1_1;
+            },
             function (http_1_1) {
                 http_1 = http_1_1;
             },
-            function (core_1_1) {
-                core_1 = core_1_1;
-            }],
+            function (to_service_1_1) {
+                to_service_1 = to_service_1_1;
+            },
+            function (_1) {}],
         execute: function() {
-            TOHTTP = (function () {
-                function TOHTTP(http) {
-                    var _this = this;
+            HttpService = (function () {
+                function HttpService(ledService, http) {
+                    this.ledService = ledService;
                     this.http = http;
-                    this.active = false;
-                    http.get('test').subscribe(function (res) {
-                        _this.people = res.json();
-                    });
                 }
-                TOHTTP.prototype.toggleActiveState = function () {
-                    this.active = !this.active;
+                HttpService.prototype.getBears = function () {
+                    return this.http.get('/api/bears')
+                        .map(function (res) { return res.json(); });
+                    //.subscribe(
+                    //    res => this.ledService.leds = res,
+                    //    error => alert(error),
+                    //    () => console.log('Bears processed')
+                    //);
                 };
-                TOHTTP = __decorate([
-                    core_1.Component({
-                        selector: 'to-http',
-                        templateUrl: 'test',
-                        providers: [http_1.HTTP_PROVIDERS]
-                    }), 
-                    __metadata('design:paramtypes', [http_1.Http])
-                ], TOHTTP);
-                return TOHTTP;
+                HttpService.prototype.putBears = function (modChange, bears_id) {
+                    var header = new http_1.Headers();
+                    header.append('Content-Type', 'application/x-www-form-urlencoded');
+                    this.http.put('http://localhost:8080/api/bears/' + bears_id, modChange, {
+                        headers: header
+                    })
+                        .subscribe(function (res) { return console.log(res.json()); });
+                };
+                HttpService = __decorate([
+                    core_1.Injectable(), 
+                    __metadata('design:paramtypes', [to_service_1.LedService, http_1.Http])
+                ], HttpService);
+                return HttpService;
             })();
-            exports_1("TOHTTP", TOHTTP);
+            exports_1("HttpService", HttpService);
         }
     }
 });

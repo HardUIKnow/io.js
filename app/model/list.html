@@ -1,0 +1,17 @@
+<table>
+    <thead>
+    <th>Component</th>
+    <th>Status</th>
+    <th>Action</th>
+    </thead>
+    <tbody *ngFor="#led of ledService.leds">
+    <tr>
+        <td>{{led.name}}</td>
+        <td>{{led.status}}</td>
+        <td>
+            <button (click)="onClick(led)">on</button>
+            <button (click)="offClick(led)">off</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
