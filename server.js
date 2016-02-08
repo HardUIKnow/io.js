@@ -36,11 +36,6 @@ router.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
     console.log("welcome to our api!")
 });
-router.get('/list.html', function (req, res) {
-    //res.json({ message: 'hooray! welcome to our api!' });
-    res.sendFile(__dirname + 'model/list.html');
-    console.log("list processed!")
-});
 
 // more routes for our API will happen here
 
@@ -72,7 +67,6 @@ router.route('/bears')
             if (err)
                 res.send(err);
             res.json(bears);
-
         });
     });
 

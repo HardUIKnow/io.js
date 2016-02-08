@@ -1,8 +1,50 @@
 [
-	{ "name":"Led1", "status":"off","pin":"10","color":"red"},
-	{ "name":"Led2", "status":"off","pin":"11","color":"red"},
-	{ "name":"Led3", "status":"off","pin":"12","color":"red"},
-	{ "name":"Led4", "status":"off","pin":"11","color":"red"},
-	{ "name":"Led5", "status":"off","pin":"12","color":"red"},
-	{ "name":"Led6", "status":"off","pin":"13","color":"red"}
+  {
+    "_id": "56b1fd3220d5ad6c262cd109",
+    "color": "red",
+    "status": "off",
+    "pin": "13",
+    "name": "Led_door",
+    "__v": 0
+  },
+  {
+    "_id": "56b1fefa20d5ad6c262cd10a",
+    "color": "red",
+    "status": "off",
+    "pin": "9",
+    "name": "Led_LivingRoom",
+    "__v": 0
+  },
+  {
+    "_id": "56b1ff1b20d5ad6c262cd10b",
+    "color": "red",
+    "status": "off",
+    "pin": "8",
+    "name": "Led_Kitchen",
+    "__v": 0
+  },
+  {
+    "_id": "56b1ff3a20d5ad6c262cd10c",
+    "color": "red",
+    "status": "off",
+    "pin": "7",
+    "name": "Led_ParentRoom",
+    "__v": 0
+  },
+  {
+    "_id": "56b1ff4e20d5ad6c262cd10d",
+    "color": "red",
+    "status": "off",
+    "pin": "11",
+    "name": "Led_ChildRoom",
+    "__v": 0
+  },
+  {
+    "_id": "56b2044ec4a76d1c19ed5376",
+    "color": "red",
+    "status": "off",
+    "pin": "3",
+    "name": "Led_Bathroom",
+    "__v": 0
+  }
 ]
